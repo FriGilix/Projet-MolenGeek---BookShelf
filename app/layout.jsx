@@ -31,7 +31,7 @@ export default function RootLayout({ children }) {
         <section className="w-full h-80 bg-white flex justify-center items-center">
           <div className="w-2/5 h-3/5 flex justify-center items-center rounded shadow-md">
             <div className="w-2/5 h-5/6 pl-2">
-              <img className="w-full h-full rounded" src="/bookTable.jpg" alt="" />
+              <img className="w-full h-full rounded" src="./Book.jpg" alt="" />
             </div>
             <div className="w-3/5 h-5/6 flex flex-col gap-3 pl-5 py-1">
               <h1 className="text-3xl font-bold">Join Our Community</h1>
@@ -78,7 +78,7 @@ export default function RootLayout({ children }) {
               </div>
               <div className="w-2/4 h-3/4 flex items-center justify-end">
                 <p className="text-white inline-flex items-center space-x-1">
-                  <FaRegCopyright /> <span>2025 all right reserved made with love by</span> <FaHeart /> <span>Alexandre</span>
+                  <FaRegCopyright /> 
                 </p>
               </div>
             </div>
