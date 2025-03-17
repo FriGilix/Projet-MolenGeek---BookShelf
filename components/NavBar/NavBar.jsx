@@ -1,10 +1,10 @@
 import React from 'react'
-import { CgMenuLeft } from "react-icons/cg";
-import { FaPhoneAlt, FaHeart } from 'react-icons/fa';
+import { CgMenuLeft } from "react-icons/cg"
+import { FaPhoneAlt, FaHeart } from 'react-icons/fa'
 
 function NavBar() {
   return (
-    <header className="w-3/4 h-30 bg-white flex justify-between items-center">
+    <header className="w-3/3 h-30 bg-white flex justify-around items-center">
           <div className="w-1/4 h-full flex items-center justify-start gap-2">
             <CgMenuLeft className="text-3xl"/>  
             <h1 className="text-3xl">BOOKSHELF.</h1>
