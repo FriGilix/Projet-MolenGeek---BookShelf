@@ -6,7 +6,7 @@ import Carousel from "../components/Carousel/Carousel"
 
 export default function Home() {
   const [books, setBooks] = useState([]) 
-  const [visibleBooks, setVisibleBooks] = useState(15)
+  const [visibleBooks, setVisibleBooks] = useState(25)
   const [loading, setLoading] = useState(true) 
   const [error, setError] = useState(null) 
 
@@ -48,7 +48,7 @@ export default function Home() {
 
       {!loading && !error && books.length > 0 && (
         <>
-          <div className="grid grid-cols-5 gap-6 p-5 bg-gray-200">
+          <div className="grid grid-cols-5 gap-6 p-3 bg-gray-200">
             {books.slice(0, visibleBooks).map((book) => (
               <div key={book.id} className="text-center p-2 bg-white text-black w-4/5 h-[375px] shadow-md mx-auto">
                 <Link href={`/books/${book.id}`} className="no-underline text-black">

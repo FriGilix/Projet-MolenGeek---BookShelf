@@ -78,7 +78,7 @@ export default function RootLayout({ children }) {
               </div>
               <div className="w-2/4 h-3/4 flex items-center justify-end">
                 <p className="text-white inline-flex items-center space-x-1">
-                  <FaRegCopyright /> 
+                  <FaRegCopyright /> <span>2025 All right reserved made with love by</span> <FaHeart /> <span>Corentin</span>
                 </p>
               </div>
             </div>
