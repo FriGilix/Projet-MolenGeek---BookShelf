@@ -88,8 +88,8 @@ const AllBooksPage = () => {
             onChange={(e) => setSortOrder(e.target.value)}
             className="border border-gray-400 rounded px-3 py-1"
           >
-            <option value="rating-up">Rating ⬆️</option>
-            <option value="rating-down">Rating ⬇️</option>
+            <option value="rating-up">Rating ⤴️ </option>
+            <option value="rating-down">Rating ⤵️ </option>
           </select>
         </div>
 

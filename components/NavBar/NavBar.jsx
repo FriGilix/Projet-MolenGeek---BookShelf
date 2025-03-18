@@ -1,6 +1,6 @@
 import React from 'react'
 import { CgMenuLeft } from "react-icons/cg"
-import { FaPhoneAlt, FaHeart } from 'react-icons/fa'
+import { FaPhoneAlt, FaHeart} from 'react-icons/fa'
 
 function NavBar() {
   return (
