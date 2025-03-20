@@ -4,9 +4,10 @@ import { Geist, Geist_Mono } from "next/font/google"
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedin, FaYoutube, FaLifeRing, FaHeart, FaRegCopyright} from "react-icons/fa"
 import { IoLayers } from "react-icons/io5"
 import "./globals.css"
-import NavBar from "../components/NavBar/NavBar"
 import store from "./store"
 import { Provider } from "react-redux"
+import { usePathname } from "next/navigation"
+
 
 
 const geistSans = Geist({
@@ -19,6 +20,8 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 })
 
+const pathname = usePathname
+
 
 export default function RootLayout({ children }) {
   return (
@@ -29,9 +32,10 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
-        <NavBar/>
+      
         {children}
         <section className="w-full h-80 bg-white flex justify-center items-center">
+          
           <div className="w-2/5 h-3/5 flex justify-center items-center rounded shadow-md">
             <div className="w-2/5 h-5/6 pl-2">
               <img className="w-full h-full rounded" src="./Book.jpg" alt="" />
@@ -53,7 +57,10 @@ export default function RootLayout({ children }) {
             </div>
           </div>
         </section>
-        <footer className="w-full h-60 bg-gray-700 flex items-end justify-center">
+
+        {pathname === '/' && (
+
+          <footer className="w-full h-60 bg-gray-700 flex items-end justify-center">
           <div className="w-4/5 h-4/5 flex flex-col justify-between items-center">
             <div className="w-full h-2/4 border-b border-gray-300 flex">
               <div className="w-2/4 h-full flex">
@@ -87,6 +94,7 @@ export default function RootLayout({ children }) {
             </div>
           </div>
         </footer>
+        )}
       </body>
     </html>
           </Provider>

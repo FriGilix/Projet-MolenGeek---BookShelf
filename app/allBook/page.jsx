@@ -2,8 +2,11 @@
 
 import React, { useState, useEffect } from "react"
 import Link from "next/link"
-import { FaList } from "react-icons/fa"
-import { FiPlusSquare } from "react-icons/fi"
+import { IoMdList } from "react-icons/io";
+import { LuSquareDot } from "react-icons/lu";
+import NavBar from "@/components/NavBar/NavBar"
+
+
 
 const fetchBooks = async () => {
   const res = await fetch("https://example-data.draftbit.com/books")
@@ -36,6 +39,8 @@ const AllBooksPage = () => {
     .sort((a, b) => sortOrder === "rating-up" ? a.rating - b.rating : b.rating - a.rating)
 
   return (
+    <>
+    <NavBar/>
     <section className="w-full px-10 flex gap-10">
       <div className="w-1/4 flex flex-col gap-6">
     
@@ -45,16 +50,16 @@ const AllBooksPage = () => {
           className="border p-2 rounded-md w-full"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-        />
+          />
 
         <div className="flex flex-col items-center">
           <h2 className="font-bold italic mb-2">Category</h2>
           <ul className="flex flex-col gap-2 items-center">
             {categories.map((category) => (
               <li
-                key={category}
-                className={`cursor-pointer ${selectedCategory === category ? "font-bold text-green-700 underline" : ""}`}
-                onClick={() => setSelectedCategory(category)}
+              key={category}
+              className={`cursor-pointer ${selectedCategory === category ? "font-bold text-green-700 underline" : ""}`}
+              onClick={() => setSelectedCategory(category)}
               >
                 {category}
               </li>
@@ -73,21 +78,21 @@ const AllBooksPage = () => {
             value={minRating}
             onChange={(e) => setMinRating(Number(e.target.value))}
             className="w-full cursor-pointer"
-          />
+            />
         </div>
       </div>
 
       <div className="w-3/4">
         <div className="flex justify-between items-center mb-5">
           <div className="flex gap-3 text-xl">
-            <FiPlusSquare className="cursor-pointer" />
-            <FaList className="cursor-pointer" />
+            <LuSquareDot className="cursor-pointer" />
+            <IoMdList className="cursor-pointer" />
           </div>
           <select
             value={sortOrder}
             onChange={(e) => setSortOrder(e.target.value)}
             className="border border-gray-400 rounded px-3 py-1"
-          >
+            >
             <option value="rating-up">Rating ⤴️ </option>
             <option value="rating-down">Rating ⤵️ </option>
           </select>
@@ -96,8 +101,8 @@ const AllBooksPage = () => {
         <div className="grid grid-cols-3 gap-20 h-186 overflow-y-scroll px-10">
           {filteredBooks.map((book) => (
             <div
-              key={book.id}
-              className="h-96 p-4 rounded-md shadow-md bg-white flex flex-col items-center relative group overflow-hidden"
+            key={book.id}
+            className="h-96 p-4 rounded-md shadow-md bg-white flex flex-col items-center relative group overflow-hidden"
             >
               <Link className="flex flex-col items-center justify-center" href={`/books/${book.id}`}>
                 <img src={book.image_url} alt={book.title} className="h-60 rounded-md mb-2" />
@@ -113,6 +118,7 @@ const AllBooksPage = () => {
         </div>
       </div>
     </section>
+          </>
   )
 }
 
