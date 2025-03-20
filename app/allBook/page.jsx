@@ -2,8 +2,8 @@
 
 import React, { useState, useEffect } from "react"
 import Link from "next/link"
-import { IoMdList } from "react-icons/io";
-import { LuSquareDot } from "react-icons/lu";
+import { IoMdList } from "react-icons/io"
+import { LuSquareDot } from "react-icons/lu"
 import NavBar from "@/components/NavBar/NavBar"
 
 

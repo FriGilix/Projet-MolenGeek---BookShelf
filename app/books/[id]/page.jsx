@@ -1,47 +1,47 @@
 "use client"
-import NavBar from "@/components/NavBar/NavBar";
-import React, { useState, useEffect } from "react";
-import { FaHeart } from "react-icons/fa";
+import NavBar from "@/components/NavBar/NavBar"
+import React, { useState, useEffect } from "react"
+import { FaHeart } from "react-icons/fa"
 
 const fetchBookById = async (id) => {
-  const res = await fetch("https://example-data.draftbit.com/books");
-  const books = await res.json();
-  return books.find((book) => book.id === Number(id));
-};
+  const res = await fetch("https://example-data.draftbit.com/books")
+  const books = await res.json()
+  return books.find((book) => book.id === Number(id))
+}
 
 const BookDetailPage = ({ params }) => {
-  const [book, setBook] = useState(null);
-  const [favorites, setFavorites] = useState([]);
+  const [book, setBook] = useState(null)
+  const [favorites, setFavorites] = useState([])
 
   useEffect(() => {
     const loadBook = async () => {
-      const fetchedBook = await fetchBookById(params.id);
-      setBook(fetchedBook);
-    };
-
-    loadBook();
-
-    // Charger les favoris depuis localStorage
-    const savedFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
-    setFavorites(savedFavorites);
-  }, [params.id]);
-
-  if (!book) {
-    return <div>Book not found frère</div>;
-  }
-
-  // Ajouter ou retirer un livre des favoris
-  const toggleFavorite = () => {
-    let updatedFavorites;
-    if (favorites.some((fav) => fav.id === book.id)) {
-      updatedFavorites = favorites.filter((fav) => fav.id !== book.id);
-    } else {
-      updatedFavorites = [...favorites, book];
+      const fetchedBook = await fetchBookById(params.id)
+      setBook(fetchedBook)
     }
 
-    setFavorites(updatedFavorites);
-    localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
-  };
+    loadBook()
+
+
+    const savedFavorites = JSON.parse(localStorage.getItem("favorites")) || []
+    setFavorites(savedFavorites)
+  }, [params.id])
+
+  if (!book) {
+    return <div>Book not found frère</div>
+  }
+
+
+  const toggleFavorite = () => {
+    let updatedFavorites
+    if (favorites.some((fav) => fav.id === book.id)) {
+      updatedFavorites = favorites.filter((fav) => fav.id !== book.id)
+    } else {
+      updatedFavorites = [...favorites, book]
+    }
+
+    setFavorites(updatedFavorites)
+    localStorage.setItem("favorites", JSON.stringify(updatedFavorites))
+  }
 
   return (
     <>
@@ -57,7 +57,6 @@ const BookDetailPage = ({ params }) => {
         </p>
         <p className="w-8/12 text-sm overflow-auto">{book.description}</p>
 
-        {/* Bouton Favori */}
         <button onClick={toggleFavorite} className="mt-3">
           <FaHeart className={`text-3xl ${favorites.some(fav => fav.id === book.id) ? "text-red-600" : "text-gray-400"}`} />
         </button>
@@ -99,7 +98,7 @@ const BookDetailPage = ({ params }) => {
       </div>
     </section>
               </>
-  );
-};
+  )
+}
 
-export default BookDetailPage;
+export default BookDetailPage

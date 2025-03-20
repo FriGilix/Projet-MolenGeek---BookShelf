@@ -24,7 +24,6 @@ function NavBar({ onSearch }) {
     const pathname = usePathname()
 
     useEffect(() => {
-        // Charger les favoris depuis localStorage
         const savedFavorites = JSON.parse(localStorage.getItem("favorites")) || []
         setFavorites(savedFavorites)
     }, [])
@@ -90,7 +89,6 @@ function NavBar({ onSearch }) {
                 </div>
             </header>
 
-            {/* SIDEBAR MENU */}
             <div 
                 className={`fixed top-0 left-0 w-64 h-full bg-white text-black z-50 transform ${
                     isSidebarOpen ? "translate-x-0" : "-translate-x-64"
@@ -144,7 +142,6 @@ function NavBar({ onSearch }) {
                 </div>
             </div>
 
-            {/* SIDEBAR FAVORIS */}
             <div 
                 className={`fixed top-0 right-0 w-80 h-full bg-white shadow-lg transform ${
                     isFavoritesOpen ? "translate-x-0" : "translate-x-full"
@@ -179,7 +176,6 @@ function NavBar({ onSearch }) {
                 </div>
             </div>
 
-            {/* Overlay pour fermer la sidebar favoris */}
             {isFavoritesOpen && (
                 <div 
                     className="fixed top-0 left-0 w-full h-full bg-black opacity-50 z-40"
