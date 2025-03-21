@@ -61,8 +61,8 @@ export default function Home() {
       <NavBar onSearch={handleSearch}/>
       <Carousel />
 
-      <div className="flex flex-col justify-center gap-2">
         <h4 className="text-center">Books Gallery</h4>
+      <div className="flex flex-col justify-center gap-2">
         {/*<h4>Connected : <span>{myData.connected ? 'yes' : 'no'}</span></h4>*/}
         <h1 className="text-center text-gray-800 text-3xl font-bold">Popular Books</h1>
       </div>
@@ -105,7 +105,7 @@ export default function Home() {
       )}
 
       {!loading && !error && filteredBooks.length === 0 && (
-        <p className="text-center text-gray-600">No books found with rating 4 or higher.</p>
+        <p className="text-center text-gray-600">Book not found frère</p>
       )}
     </div>
   )
